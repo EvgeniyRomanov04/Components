@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #222122
+}
+
+p {
+  display: block;
+}
+
+form {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto 0;
+  font-size: 16px;
+  color: #fff;
+}
+
+fieldset {
+  padding: 10px 5px;
+}
+
+legend {
+  padding: 0 5px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+p > label {
+  display: block;
+  padding: 0 0 0 5px;
+}
+
+button {
+  margin: 10px 0 0 5px;
+  padding: 10px 15px;
+  color: #fff;
+  background: #222122;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+  width: 100%;
+  margin: 5px 0 0;
+  padding: 5px 10px;
+  border: 2px solid #000;
+  appearance: none;
+  box-sizing: border-box;
+}
+
+input:invalid {
+  border-color: #900;
+  background-color: #fdd;
+  box-shadow: 0 0 3px 1px red;
+}
+
+input:focus:invalid {
+  border-color: transparent;
+  box-shadow: none;
+  outline: none;
+}
+
+input:valid {
+  border-color: #000;
+  background-color: #fff;
+}
+
+/* Error Message */
+
+
+.error {
+  width: 100%;
+  display: block;
+  padding: 0;
+
+  font-size: 80%;
+  color: #fff;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+
+  box-sizing: border-box;
+}
+
+.error.active {
+  padding: 5px 10px;
+}

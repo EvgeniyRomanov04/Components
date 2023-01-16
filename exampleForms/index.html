@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+  <form action="">
+    <fieldset>
+      <legend>Fruit juice size</legend>
+
+        <div>
+          <input type="radio" name="size" id="size_1" value="small">
+          <label for="size_1">Small</label>
+        </div>
+
+        <div>
+          <input type="radio" name="size" id="size_2" value="medium">
+          <label for="size_2">Medium</label>
+        </div>
+
+        <div>
+          <input type="radio" name="size" id="size_3" value="large">
+          <label for="size_3">Large</label>
+        </div>
+
+        <div>
+          <input type="radio" name="size" id="size_4" value="variable">
+          <label for="size_4">Varaible</label>
+        </div>
+
+        <label for="name">Name:</label> <input type="email" id="name" name="user_name">
+
+        <label for="name">
+          Name: <input type="text" id="name" name="user_name">
+        </label>
+
+        <label for="user_email">
+          Email: <input type="email" id="user_email" name="email">
+        </label>
+
+    </fieldset>
+  </form>
+
+  <form>
+  <p>
+    <label for="taste_1">I like cherry</label>
+    <input type="checkbox" id="taste_1" name="taste_cherry" value="1">
+  </p>
+  <p>
+    <label for="taste_2">I like banana</label>
+    <input type="checkbox" id="taste_2" name="taste_banana" value="2">
+  </p>
+</form>
+
+<!--  -->
+
+<form action="">
+    <p>Required fields are followed by <abbr title="required"></abbr></p>
+
+  <!-- Тогда это: -->
+  <div>
+    <label for="username">Name:</label>
+    <input type="text" name="username">
+    <label for="username"><abbr title="required">*</abbr></label>
+  </div>
+
+  <!-- лучше сделать таким образом: -->
+  <div>
+    <label for="username">
+      <span>Name:</span>
+      <input id="username" type="text" name="username">
+      <abbr title="required">*</abbr>
+    </label>
+  </div>
+
+  <!-- Но этот вариант лучше всего: -->
+  <div>
+    <label for="username">Name: <abbr title="required">*</abbr></label>
+    <input id="username" type="text" name="username">
+  </div>
+</form>
+
+<!-- Примеры встроенной валидации форм -->
+
+<form>
+  <p>
+    <fieldset>
+      <legend>Do you have a driver's license?<abbr title="This field is mandatory" aria-label="required">*</abbr></legend>
+      <!-- Так как в группе радио-кнопок, имеющих одинаковое имя, выбранной может быть
+          только одна, то и атрибут "required" достаточно задать хотя бы одной кнопке,
+          чтобы сделать всю группу обязательной для заполнения -->
+      <input type="radio" required name="driver" id="r1" value="yes"><label for="r1">Yes</label>
+      <input type="radio" required name="driver" id="r2" value="no"><label for="r2">No</label>
+    </fieldset>
+  </p>
+  <p>
+    <label for="n1">How old are you?</label>
+    <!-- Атрибут "pattern" может выступать фолбэком для браузеров, которые
+        не поддерживают поля ввода c числовым типом данных. Те браузеры,
+        которые такие поля поддерживают, будут просто игнорировать его.
+        Как раз, ниже атрибут "pattern" выполняет роль фолбека.
+     -->
+    <input type="number" min="12" max="120" step="1" id="n1" name="age"
+           pattern="\d+">
+  </p>
+  <p>
+    <label for="t1">What's your favorite fruit?<abbr title="This field is mandatory" aria-label="required">*</abbr></label>
+    <input type="text" id="t1" name="fruit" list="l1" required
+           pattern="[Bb]anana|[Cc]herry|[Aa]pple|[Ss]trawberry|[Ll]emon|[Oo]range">
+    <datalist id="l1">
+      <option>Banana</option>
+      <option>Cherry</option>
+      <option>Apple</option>
+      <option>Strawberry</option>
+      <option>Lemon</option>
+      <option>Orange</option>
+    </datalist>
+  </p>
+  <p>
+    <label for="t2">What's your e-mail address?</label>
+    <input type="email" id="t2" name="email">
+  </p>
+  <p>
+    <label for="t3">Leave a short message</label>
+    <textarea id="t3" name="msg" maxlength="140" rows="5"></textarea>
+  </p>
+  <p>
+    <button>Submit</button>
+  </p>
+</form>
+
+<h1>Валидация форм с помощью JavaScript</h1>
+
+<h2>Constraint Validation API</h2>
+
+<form>
+  <label for="email">I would like you to provide me with an e-mail address:</label>
+  <input type="email" id="email" name="mail">
+  <button>Submit</button>
+</form>
+
+<!-- Более подробный пример -->
+
+<form novalidate>
+  <p>
+    <label for="mail">
+      <span>Please enter an email address:</span>
+      <input type="email" id="mail" name="email" required minlength="8">
+      <span class="error" aria-live="polite"></span>
+    </label>
+  </p>
+  <button>Submit</button>
+</form>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+</html>
